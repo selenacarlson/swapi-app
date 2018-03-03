@@ -1,5 +1,11 @@
 app.controller('StarController', ['StarService', function(StarService){
-    console.log('controller created');
+    
+    let self = this;
+
+    self.getSwapi = StarService.getSwapi;
+    self.searchResult = StarService.searchResult;
+
+    self.getSwapi();
 
 
 }])
