@@ -1,4 +1,8 @@
 <h2>Favorites</h2>
 <div ng-repeat="favorite in sc.favorites.list">
-    {{favorite.name}}
+    <div class="result">
+        {{favorite.name}}
+        <br>
+        <button ng-click=sc.deleteFavorite(favorite)>Delete</button>
+    </div>
 </div>

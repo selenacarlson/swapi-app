@@ -11,28 +11,42 @@ const FavoriteSchema = new mongoose.Schema(
 
 const Favorite = mongoose.model('Favorite', FavoriteSchema, 'favorites');
 
-router.get('/', (request, response) => {
-    Favorite.find({}, (error, foundFavorites) => {
+router.get('/', function(req, res) {
+    Favorite.find({}, function(error, foundFavorites) {
       if (error){
         console.log('error on find favorites:', error);
-        response.sendStatus(500);
+        res.sendStatus(500);
       } else {
-        response.send(foundFavorites);
+        res.send(foundFavorites);
       }
     })
   });
   
-  router.post('/', (request, response) => {
-    let newFavorite = new Favorite(request.body);
-    console.log('saving favorite:', request.body);
-    newFavorite.save((error, savedGame) => {
+  router.post('/', function(req, res) {
+    let newFavorite = new Favorite(req.body);
+    console.log('saving favorite:', req.body);
+    newFavorite.save( function(error, savedGame) {
       if (error){
         console.log('error on add favorite:', error);
-        response.sendStatus(500);
+        res.sendStatus(500);
       } else {
-        response.sendStatus(201);
+        res.sendStatus(201);
       }
     })
   });
+
+  router.delete('/:id', function(req, res) {
+    let id = req.params.id;
+    Favorite.findByIdAndRemove(
+      {"_id": id}, 
+      function(error, deletedFavorite) {
+      if (error){
+        console.log('error on delete favorite:', error);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    })
+  })
 
   module.exports = router;

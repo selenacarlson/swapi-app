@@ -1,16 +1,6 @@
 app.controller('StarController', ['$http', function($http){
     
-    // let self = this;
-
-    // self.topic = StarService.topic;
-    // self.search = StarService.search;
-    // self.keyword = StarService.keyword;
-
-    // self.getSwapi = StarService.getSwapi;
-    // self.searchResult = StarService.searchResult;
-
-    
-    let self = this;
+let self = this;
 
     self.searchResult = { list: [] };
     self.favorites = { list: [] };
@@ -51,12 +41,34 @@ app.controller('StarController', ['$http', function($http){
             url: '/favorites'
         }).then(function(response){
             self.favorites.list = response.data;
-            console.log(self.favorites.list);
         }).catch(function(error){
             console.log('error on get', error);
         })
     }
 
     self.getFavorites();
+
+    self.deleteFavorite = function(favorite){
+        let id = favorite._id;
+        $http({
+            method: 'DELETE',
+            url: `/favorites/${id}`
+        }).then(function(response){
+            self.getFavorites();
+        }).catch(function(error){
+            console.log('error on delete', error);
+        })
+    };
+
+
+
+    // let self = this;
+
+    // self.topic = StarService.topic;
+    // self.search = StarService.search;
+    // self.keyword = StarService.keyword;
+
+    // self.getSwapi = StarService.getSwapi;
+    // self.searchResult = StarService.searchResult;
 
 }])
