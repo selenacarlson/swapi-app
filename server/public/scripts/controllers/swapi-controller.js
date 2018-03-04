@@ -8,17 +8,19 @@ app.controller('StarController', ['$http', function($http){
 
     // self.getSwapi = StarService.getSwapi;
     // self.searchResult = StarService.searchResult;
+
     
     let self = this;
 
     self.searchResult = { list: [] };
+    self.favorites = { list: [] };
 
     self.topic = '';
     self.search = '/?search=';
     self.keyword = '';
+    
 
     self.getSwapi = function(){
-        let url = `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`;
         $http({
             method: 'GET',
             url: `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`
@@ -29,5 +31,32 @@ app.controller('StarController', ['$http', function($http){
             console.log('error on get', error);
         })
     }
+
+    self.favoriteResult = function(result){
+        console.log(result);
+        $http({
+            method: 'POST',
+            url: '/favorites',
+            data: result
+        }).then(function(response){
+            self.getFavorites();
+        }).catch(function(error){
+            console.log('error on post', error);
+        })
+    }
+
+    self.getFavorites = function(){
+        $http({
+            method: 'GET',
+            url: '/favorites'
+        }).then(function(response){
+            self.favorites.list = response.data;
+            console.log(self.favorites.list);
+        }).catch(function(error){
+            console.log('error on get', error);
+        })
+    }
+
+    self.getFavorites();
 
 }])

@@ -1,25 +1,25 @@
-app.service('StarService', ['$http', function($http){
+// app.service('StarService', ['$http', function($http){
 
-    let self = this;
+//     let self = this;
 
-    self.searchResult = { list: [] };
+//     self.searchResult = { list: [] };
 
-    self.topic = '';
-    self.search = '/?search=';
-    self.keyword = '';
+//     self.topic = '';
+//     self.search = '/?search=';
+//     self.keyword = '';
 
-    self.getSwapi = function(){
-        let url = `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`;
-        $http({
-            method: 'GET',
-            url: `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`
-        }).then(function(response){
-            console.log(response);
-            self.searchResult.list = response.data;
-        }).catch(function(error){
-            console.log(error);
-            console.log(url);
-        })
-    }
+//     self.getSwapi = function(){
+//         let url = `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`;
+//         $http({
+//             method: 'GET',
+//             url: `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`
+//         }).then(function(response){
+//             console.log(response);
+//             self.searchResult.list = response.data;
+//         }).catch(function(error){
+//             console.log(error);
+//             console.log(url);
+//         })
+//     }
 
-}])
+// }])
