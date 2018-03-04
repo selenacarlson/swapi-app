@@ -1,2 +1,16 @@
 <h2>Search</h2>
-<p>{{sc.searchResult.list.name}}</p>
+<select ng-model="sc.topic">
+    <option value="">Select a topic</option>
+    <option value="people">People</option>
+    <option value="planets">Planets</option>
+    <option value="species">Species</option>
+    <option value="starships">Starships</option>
+</select>
+<input ng-model="sc.keyword" type="text" placeholder="Keyword">
+<button ng-click="sc.getSwapi()">Search</button>
+
+<div ng-repeat="result in sc.searchResult.list"> 
+    Name: {{result.name}}
+    <br>
+    Born: {{result.birth_year}}
+</div>
