@@ -1,10 +1,41 @@
 .result {
-    background-color: aquamarine;
-    height: 200px;
-    width: 200px;
+    background-color: 	rgb(255, 232, 208);
+    height: 100px;
+    width: 100px;
     margin: 15px;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 15px;
+    padding: 50px;
     float: left;
+    border-radius: 50%;
+}
+
+body {
+    background-image: url('tatooine.png');
+    background-size: 100%;
+    font-family: 'Exo 2', sans-serif;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+a {
+    color: #4B3937;
+}
+
+a:hover {
+    color: 	#F8D591;
+}
+
+h1 {
+    font-size: 100px;
+    margin: 0px;
+}
+
+h2 {
+   font-size: 50px;
+    margin: 0px;
+}
+
+nav {
+    float: right;
+    margin-right: 30px;
+    font-size: 20px;
 }
