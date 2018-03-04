@@ -10,7 +10,9 @@
 <button ng-click="sc.getSwapi()">Search</button>
 
 <div ng-repeat="result in sc.searchResult.list"> 
-    Name: {{result.name}}
-    <br>
-    Born: {{result.birth_year}}
+    <div class="result">
+        Name: {{result.name}}
+        <br>
+        Born: {{result.birth_year}}
+    </div>
 </div>
