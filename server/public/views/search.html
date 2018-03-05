@@ -7,7 +7,8 @@
 </select>
 <input ng-model="sc.keyword" type="text" placeholder="Keyword">
 <button ng-click="sc.getSwapi()">Search</button>
-
+<br>
+<br>
 <div ng-repeat="result in sc.searchResult.list" ng-if="result.birth_year">
     <div class="result">
         <div class="name">{{result.name}}</div>
