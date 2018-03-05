@@ -16,6 +16,8 @@ app.service('StarService', ['$http', function($http){
             url: `https://swapi.co/api/${topic}${search}${keyword}`
         }).then(function(response){
             self.searchResult.list = response.data.results;
+            self.SWAPISearch.topic = '';
+            self.SWAPISearch.keyword = '';
         }).catch(function(error){
             console.log('error on get', error);
             console.log(self.topic, self.keyword);

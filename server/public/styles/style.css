@@ -50,3 +50,15 @@ nav {
     font-size: 150%;
     font-weight: bold;
 }
+
+.button {
+    background-color: #4B3937;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 4px;
+}

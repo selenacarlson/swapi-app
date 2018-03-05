@@ -3,8 +3,8 @@ const app = angular.module('myApp', ['ngRoute']);
 app.config(function($routeProvider){
     $routeProvider.when('/', {
         templateUrl: 'views/search.html',
-        controller: 'StarController as sc'
-    }).when('/faves', {
+        controller: 'StarController as sc',
+    }).when('/storage', {
         templateUrl: 'views/favorites.html',
         controller: 'StarController as sc'
     }).when('/search', {
