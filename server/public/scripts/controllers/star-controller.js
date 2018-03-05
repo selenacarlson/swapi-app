@@ -1,4 +1,4 @@
-app.controller('StarController', ['StarService', '$scope', '$route', function(StarService, $scope, $route){
+app.controller('StarController', ['StarService', function(StarService){
     
     let self = this;
 
