@@ -1,12 +1,12 @@
-<select ng-model="sc.topic">
+<select ng-model="sc.SWAPISearch.topic">
     <option value="">Select a topic</option>
     <option value="people">People</option>
     <option value="planets">Planets</option>
     <option value="species">Species</option>
     <option value="starships">Starships</option>
 </select>
-<input ng-model="sc.keyword" type="text" placeholder="Keyword">
-<button ng-click="sc.getSwapi()">Search</button>
+<input ng-model="sc.SWAPISearch.keyword" type="text" placeholder="Keyword">
+<button ng-click="sc.getSwapi(sc.SWAPISearch)">Search</button>
 <br>
 <br>
 <div ng-repeat="result in sc.searchResult.list" ng-if="result.birth_year">

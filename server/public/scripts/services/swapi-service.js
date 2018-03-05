@@ -1,25 +1,62 @@
-// app.service('StarService', ['$http', function($http){
+app.service('StarService', ['$http', function($http){
 
-//     let self = this;
+    let self = this;
 
-//     self.searchResult = { list: [] };
+    self.searchResult = { list: [] };
+    self.favorites = { list: [] };
 
-//     self.topic = '';
-//     self.search = '/?search=';
-//     self.keyword = '';
+    self.SWAPISearch = {};
+    
+    self.getSwapi = function(SWAPISearch){
+        let search = '/?search=';
+        let topic = SWAPISearch.topic;
+        let keyword = SWAPISearch.keyword;
+        $http({
+            method: 'GET',
+            url: `https://swapi.co/api/${topic}${search}${keyword}`
+        }).then(function(response){
+            self.searchResult.list = response.data.results;
+        }).catch(function(error){
+            console.log('error on get', error);
+            console.log(self.topic, self.keyword);
+        })
+    }
 
-//     self.getSwapi = function(){
-//         let url = `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`;
-//         $http({
-//             method: 'GET',
-//             url: `https://swapi.co/api/${self.topic}${self.search}${self.keyword}`
-//         }).then(function(response){
-//             console.log(response);
-//             self.searchResult.list = response.data;
-//         }).catch(function(error){
-//             console.log(error);
-//             console.log(url);
-//         })
-//     }
+    self.favoriteResult = function(result){
+        $http({
+            method: 'POST',
+            url: '/favorites',
+            data: result
+        }).then(function(response){
+            self.getFavorites();
+        }).catch(function(error){
+            console.log('error on post', error);
+        })
+    }
 
-// }])
+    self.getFavorites = function(){
+        $http({
+            method: 'GET',
+            url: '/favorites'
+        }).then(function(response){
+            self.favorites.list = response.data;
+        }).catch(function(error){
+            console.log('error on get', error);
+        })
+    }
+
+    self.getFavorites();
+
+    self.deleteFavorite = function(favorite){
+        let id = favorite._id;
+        $http({
+            method: 'DELETE',
+            url: `/favorites/${id}`
+        }).then(function(response){
+            self.getFavorites();
+        }).catch(function(error){
+            console.log('error on delete', error);
+        })
+    };
+
+}])
