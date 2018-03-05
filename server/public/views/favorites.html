@@ -1,7 +1,47 @@
-<div ng-repeat="favorite in sc.favorites.list">
+<div ng-repeat="result in sc.favorites.list" ng-if="result.birth_year">
     <div class="result">
-        {{favorite.name}}
+        <div class="name">{{result.name}}</div>
+        Born: {{result.birth_year}}
         <br>
-        <button ng-click=sc.deleteFavorite(favorite)>Remove</button>
+        Gender: {{result.gender}}
+        <br>
+        Hair Color: {{result.hair_color}} 
+        <br>
+        <button ng-click=sc.deleteFavorite(result)>Remove</button>
+    </div>
+</div>
+
+<div ng-repeat="result in sc.favorites.list" ng-if="result.climate"> 
+    <div class="result">
+        <div class="name">{{result.name}}</div>
+        Climate: {{result.climate}} 
+        <br>
+        Terrain: {{result.terrain}}
+        <br>
+        <button ng-click=sc.deleteFavorite(result)>Remove</button>
+    </div>
+ </div>
+
+<div ng-repeat="result in sc.favorites.list" ng-if="result.average_height"> 
+    <div class="result">
+        <div class="name">{{result.name}}</div>
+        Class: {{result.classification}}
+        <br>
+        Avg Height: {{result.average_height}}
+        <br>
+        Language: {{result.language}}
+        <br>
+        <button ng-click=sc.deleteFavorite(result)>Remove</button>
+    </div>
+</div>
+
+<div ng-repeat="result in sc.favorites.list" ng-if="result.crew"> 
+    <div class="result">
+       <div class="name">{{result.name}}</div>
+        Crew: {{result.crew}}
+        <br>
+        Class: {{result.starship_class}}
+        <br>
+        <button ng-click=sc.deleteFavorite(result)>Remove</button>
     </div>
 </div>

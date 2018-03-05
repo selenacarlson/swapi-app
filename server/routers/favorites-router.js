@@ -5,7 +5,17 @@ const mongoose = require('mongoose');
 
 const FavoriteSchema = new mongoose.Schema(
     {
-        name: String
+        name: String,
+        birth_year: String,
+        gender: String,
+        hair_color: String,
+        climate: String,
+        terrain: String,
+        classification: String,
+        average_height: String,
+        language: String,
+        crew: String,
+        starship_class: String
     }
 );
 

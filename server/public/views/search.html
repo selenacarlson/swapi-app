@@ -8,11 +8,49 @@
 <input ng-model="sc.keyword" type="text" placeholder="Keyword">
 <button ng-click="sc.getSwapi()">Search</button>
 
-<div ng-repeat="result in sc.searchResult.list"> 
+<div ng-repeat="result in sc.searchResult.list" ng-if="result.birth_year">
     <div class="result">
-        Name: {{result.name}}
-        <br>
+        <div class="name">{{result.name}}</div>
         Born: {{result.birth_year}}
+        <br>
+        Gender: {{result.gender}}
+        <br>
+        Hair Color: {{result.hair_color}} 
+        <br>
+        <button ng-click="sc.favoriteResult(result)">Store</button>
+    </div>
+</div>
+
+<div ng-repeat="result in sc.searchResult.list" ng-if="result.climate"> 
+    <div class="result">
+        <div class="name">{{result.name}}</div>
+        Climate: {{result.climate}} 
+        <br>
+        Terrain: {{result.terrain}}
+        <br>
+        <button ng-click="sc.favoriteResult(result)">Store</button>
+    </div>
+ </div>
+
+<div ng-repeat="result in sc.searchResult.list" ng-if="result.average_height"> 
+    <div class="result">
+        <div class="name">{{result.name}}</div>
+        Class: {{result.classification}}
+        <br>
+        Avg Height: {{result.average_height}}
+        <br>
+        Language: {{result.language}}
+        <br>
+        <button ng-click="sc.favoriteResult(result)">Store</button>
+    </div>
+</div>
+
+<div ng-repeat="result in sc.searchResult.list" ng-if="result.crew"> 
+    <div class="result">
+        <div class="name">{{result.name}}</div>
+        Crew: {{result.crew}}
+        <br>
+        Class: {{result.starship_class}}
         <br>
         <button ng-click="sc.favoriteResult(result)">Store</button>
     </div>
