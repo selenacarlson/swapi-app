@@ -1,47 +1,47 @@
-<div ng-repeat="result in sc.favorites.list" ng-if="result.birth_year">
-    <div class="result">
-        <div class="name">{{result.name}}</div>
-        Born: {{result.birth_year}}
+<div ng-repeat="favorite in sc.favorites.list" ng-if="favorite.birth_year">
+    <div class="display">
+        <div class="name">{{favorite.name}}</div>
+        Born: {{favorite.birth_year}}
         <br>
-        Gender: {{result.gender}}
+        Gender: {{favorite.gender}}
         <br>
-        Hair Color: {{result.hair_color}} 
+        Hair Color: {{favorite.hair_color}} 
         <br>
-        <button class="button" ng-click=sc.deleteFavorite(result)>Remove</button>
+        <button class="button" ng-click=sc.deleteFavorite(favorite)>Remove</button>
     </div>
 </div>
 
-<div ng-repeat="result in sc.favorites.list" ng-if="result.climate"> 
-    <div class="result">
-        <div class="name">{{result.name}}</div>
-        Climate: {{result.climate}} 
+<div ng-repeat="favorite in sc.favorites.list" ng-if="favorite.climate"> 
+    <div class="display">
+        <div class="name">{{favorite.name}}</div>
+        Climate: {{favorite.climate}} 
         <br>
-        Terrain: {{result.terrain}}
+        Terrain: {{favorite.terrain}}
         <br>
-        <button class="button" ng-click=sc.deleteFavorite(result)>Remove</button>
+        <button class="button" ng-click=sc.deleteFavorite(favorite)>Remove</button>
     </div>
  </div>
 
-<div ng-repeat="result in sc.favorites.list" ng-if="result.average_height"> 
-    <div class="result">
-        <div class="name">{{result.name}}</div>
-        Class: {{result.classification}}
+<div ng-repeat="favorite in sc.favorites.list" ng-if="favorite.average_height"> 
+    <div class="display">
+        <div class="name">{{favorite.name}}</div>
+        Class: {{favorite.classification}}
         <br>
-        Avg Height: {{result.average_height}}
+        Avg Height: {{favorite.average_height}}
         <br>
-        Language: {{result.language}}
+        Language: {{favorite.language}}
         <br>
-        <button class="button" ng-click=sc.deleteFavorite(result)>Remove</button>
+        <button class="button" ng-click=sc.deleteFavorite(favorite)>Remove</button>
     </div>
 </div>
 
-<div ng-repeat="result in sc.favorites.list" ng-if="result.crew"> 
-    <div class="result">
-       <div class="name">{{result.name}}</div>
-        Crew: {{result.crew}}
+<div ng-repeat="favorite in sc.favorites.list" ng-if="favorite.crew"> 
+    <div class="display">
+       <div class="name">{{favorite.name}}</div>
+        Crew: {{favorite.crew}}
         <br>
-        Class: {{result.starship_class}}
+        Class: {{favorite.starship_class}}
         <br>
-        <button class="button" ng-click=sc.deleteFavorite(result)>Remove</button>
+        <button class="button" ng-click=sc.deleteFavorite(favorite)>Remove</button>
     </div>
 </div>

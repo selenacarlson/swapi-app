@@ -4,7 +4,6 @@ app.service('StarService', ['$http', function($http){
 
     self.searchResult = { list: [] };
     self.favorites = { list: [] };
-
     self.SWAPISearch = {};
     
     self.getSwapi = function(SWAPISearch){
@@ -14,10 +13,8 @@ app.service('StarService', ['$http', function($http){
         $http({
             method: 'GET',
             url: `https://swapi.co/api/${topic}${search}${keyword}`
-        }).then(function(response){
-            self.searchResult.list = response.data.results;
-            self.SWAPISearch.topic = '';
-            self.SWAPISearch.keyword = '';
+        }).then(function(res){
+            self.searchResult.list = res.data.results;
         }).catch(function(error){
             console.log('error on get', error);
             console.log(self.topic, self.keyword);
@@ -29,7 +26,7 @@ app.service('StarService', ['$http', function($http){
             method: 'POST',
             url: '/favorites',
             data: result
-        }).then(function(response){
+        }).then(function(res){
             self.getFavorites();
         }).catch(function(error){
             console.log('error on post', error);
@@ -40,8 +37,8 @@ app.service('StarService', ['$http', function($http){
         $http({
             method: 'GET',
             url: '/favorites'
-        }).then(function(response){
-            self.favorites.list = response.data;
+        }).then(function(res){
+            self.favorites.list = res.data;
         }).catch(function(error){
             console.log('error on get', error);
         })
@@ -54,11 +51,16 @@ app.service('StarService', ['$http', function($http){
         $http({
             method: 'DELETE',
             url: `/favorites/${id}`
-        }).then(function(response){
+        }).then(function(res){
             self.getFavorites();
         }).catch(function(error){
             console.log('error on delete', error);
         })
     };
+
+    self.refreshSearch = function() {
+        self.searchResult.list = {};
+        return self.searchResult.list;
+     }
 
 }])

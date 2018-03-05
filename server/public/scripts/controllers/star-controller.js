@@ -1,4 +1,4 @@
-app.controller('StarController', ['StarService', function(StarService){
+app.controller('StarController', ['StarService', '$scope', '$route', function(StarService, $scope, $route){
     
     let self = this;
 
@@ -9,8 +9,10 @@ app.controller('StarController', ['StarService', function(StarService){
 
     self.getSwapi = StarService.getSwapi;
     self.favoriteResult = StarService.favoriteResult;
-    self.getFavorites = StarService.getFavorites;
 
+    self.refreshSearch = StarService.refreshSearch;
+    
+    self.getFavorites = StarService.getFavorites;
     self.getFavorites();
 
     self.deleteFavorite = StarService.deleteFavorite;

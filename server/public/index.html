@@ -14,17 +14,16 @@
     <script src="vendors/angular-material.min.js" charset="utf-8"></script> 
 
     <script src="scripts/client.js"></script>
-    <script src="scripts/controllers/swapi-controller.js"></script>
-    <script src="scripts/services/swapi-service.js"></script>
-
+    <script src="scripts/controllers/star-controller.js"></script>
+    <script src="scripts/services/star-service.js"></script>
 
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <title>SWAPI App</title>
 </head>
-<body>
-     <nav>
-        <a href="/#!">SEARCH</a>
+<body ng-controller="StarController as sc">
+    <nav>
+        <a ng-click="sc.refreshSearch()" href="/#!">SEARCH</a>
         <a href="/#!storage">STORAGE</a>
     </nav>
     <h1>STAR WARS</h1> 

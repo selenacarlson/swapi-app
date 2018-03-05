@@ -10,7 +10,7 @@
 <br>
 <br>
 <div ng-repeat="result in sc.searchResult.list" ng-if="result.birth_year">
-    <div class="result">
+    <div class="display">
         <div class="name">{{result.name}}</div>
         Born: {{result.birth_year}}
         <br>
@@ -23,7 +23,7 @@
 </div>
 
 <div ng-repeat="result in sc.searchResult.list" ng-if="result.climate"> 
-    <div class="result">
+    <div class="display">
         <div class="name">{{result.name}}</div>
         Climate: {{result.climate}} 
         <br>
@@ -34,7 +34,7 @@
  </div>
 
 <div ng-repeat="result in sc.searchResult.list" ng-if="result.average_height"> 
-    <div class="result">
+    <div class="display">
         <div class="name">{{result.name}}</div>
         Class: {{result.classification}}
         <br>
@@ -47,7 +47,7 @@
 </div>
 
 <div ng-repeat="result in sc.searchResult.list" ng-if="result.crew"> 
-    <div class="result">
+    <div class="display">
         <div class="name">{{result.name}}</div>
         Crew: {{result.crew}}
         <br>
